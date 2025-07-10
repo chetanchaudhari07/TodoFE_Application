@@ -78,6 +78,7 @@ const Dashboard = () => {
           <TodoItem
             key={todo._id}
             todo={todo}
+            
             onDelete={handleDelete}
             onEdit={() => handleEdit(todo)}
           />
