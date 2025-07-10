@@ -49,6 +49,7 @@ const TodoList = () => {
           <TodoItem
             key={todo._id}
             todo={todo}
+            currentUserId={user.id}
             onDelete={handleDelete}
             onEdit={() => setEditTodo(todo)}
           />

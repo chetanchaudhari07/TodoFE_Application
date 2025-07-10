@@ -8,6 +8,7 @@ const TodoForm = ({ onSuccess, editingTodo }) => {
     tags: "",
     priority: "Medium",
     mentions: "",
+    visibility: "private"
   });
 
   useEffect(() => {
@@ -16,6 +17,7 @@ const TodoForm = ({ onSuccess, editingTodo }) => {
         ...editingTodo,
         tags: editingTodo.tags.join(", "),
         mentions: editingTodo.mentions.map((m) => m.username).join(", "),
+        visibility: editingTodo.visibility || "private"
       });
     }
   }, [editingTodo]);
@@ -87,6 +89,16 @@ const TodoForm = ({ onSuccess, editingTodo }) => {
         onChange={(e) => setFormData({ ...formData, mentions: e.target.value })}
         placeholder="@usernames (comma separated)"
       />
+
+
+      <select
+        className="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-400"
+        value={formData.visibility}
+        onChange={(e) => setFormData({ ...formData, visibility: e.target.value })}
+      >
+        <option value="private">Private</option>
+        <option value="public">Public</option>
+      </select>
 
       <button
         type="submit"

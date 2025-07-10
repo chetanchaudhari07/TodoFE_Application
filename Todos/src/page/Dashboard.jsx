@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/login");
+    navigate("/home");
   };
 
   const handleDelete = async (id) => {
