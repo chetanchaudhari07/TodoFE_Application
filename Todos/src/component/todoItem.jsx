@@ -1,6 +1,7 @@
 
 const TodoItem = ({ todo, onDelete, onEdit, currentUserId }) => {
-  const isOwner = todo.user === currentUserId || todo.user?._id === currentUserId;
+  const token = localStorage.getItem("token");
+  const isOwner = (todo.user === currentUserId || todo.user?._id === currentUserId ) && token;
 
   return (
     <div className="bg-white shadow-md rounded-lg p-4 mb-4 border border-gray-200">
